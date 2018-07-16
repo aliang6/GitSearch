@@ -39,9 +39,9 @@ A user opens the webpage and is created with buttons that they can use to select
 * GitHub's API
 
 ## Work Delegation
-Alan Yu - Back End, Node.JS, and Routing
-Lawrence Ng - Front End and Design
-Andy Liang - Back End, Node.JS, and API
+- Alan Yu - Back End, Node.JS, and Routing
+- Lawrence Ng - Front End and Design
+- Andy Liang - Back End, Node.JS, and API
 
 ## Planning
 - Monday July 16, 2018 
