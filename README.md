@@ -17,10 +17,10 @@ A user opens the webpage and is created with buttons that they can use to select
 
 ## Routes
 - Index/Home
-  - GET <span></span>www.gitsearch.com/
+  - GET gitsearch.com/
 - Result
-  - GET <span></span>www.gitsearch.com/results?
-  - POST <span></span>www.gitsearch.com/results?
+  - GET gitsearch.com/results
+  - POST gitsearch.com/results
 
 ## Features
 - Search Bar for Keywords to Search
