@@ -6,3 +6,23 @@ body {
 a {
   color: #00B7FF;
 }
+
+h1 {
+  text-align: center;
+  margin-bottom: 350px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-text {
+  font-size: 25px;
+}
+
+img {
+  height: 43px;
+  width: 48px;
+}
