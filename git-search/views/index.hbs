@@ -1,40 +1,67 @@
 <div>
   <h1>{{title}}</h1>
+  <div class="container input" id = "search-form">
     <form>
-      <div class="container">
-        <img src = "resources/Minimal-Magnifying-Glass.png" alt = "magnifying glass image">
-      </div>
-      <div class ="container">
-        <p class="search-text">Search for a repository.</p>
-      </div>
-      <div class="container">
-            <input type="text" name="search" class ="searchbar" placeholder="Search..">
-      </div>
-      <div class="container">
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
-      <div class="container">
-        <p>language:</p>
-        <select>
-          <option>Java</option>
-          <option>Javascript</option>
-          <option>C++</option>
-          <option>C#</option>
-          <option>Ruby</option>
-          <option>C</option>
-          <option>Python</option>
-          <option>Swift</option>
-          <option>R</option>
-          <option>HTML</option>
-          <option>CSS</option>
-        </select>
-      </div>
-      <div class="container">
-        <p>license:</p>
-        <select>
-          <option>MIT</option>
-          <option>GNU</option>
-        </select>
-      </div>
+      <input type="text" placeholder="Search..." class="search" required>
+      <button type ="submit" class="button" value="Search"><img src = "resources/Minimal-Magnifying-Glass.png" alt = "magnifying glass"></button>
     </form>
+  </div>
+  <div class="container">
+    <p>Language:</p>
+  </div>
+  <div class="container">
+    <label class="container">Java
+      <input type="checkbox" class="checkbox">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">C++
+      <input type="checkbox" class="checkbox">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">Python
+      <input type="checkbox" class="checkbox">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">C#
+      <input type="checkbox" class="checkbox">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">Swift
+      <input type="checkbox" class="checkbox">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">Javascript
+      <input type="checkbox" class="checkbox">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">HTML
+      <input type="checkbox" class="checkbox">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">CSS
+      <input type="checkbox" class="checkbox">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">Ruby
+      <input type="checkbox" class="checkbox">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">R
+      <input type="checkbox" class="checkbox">
+      <span class="checkmark"></span>
+    </label>
+  </div>
+  <div class="container">
+    <p>License:</p>
+  </div>
+  <div class="container">
+    <label class="container">MIT
+      <input type="checkbox" class="checkbox">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">GNU
+      <input type="checkbox" class="checkbox">
+      <span class="checkmark"></span>
+    </label>
+  </div>
 </div>
