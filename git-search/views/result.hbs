@@ -1,14 +1,43 @@
 <a href="/">Search Again</a>
-<h1>{{link}}</h1>
+<div class="container">
+    <form action="/results" method="POST">
+        <div class="form-group">
+            <label for="search-topics">Enter Search Topics</label>
+            <input type="text" name="input" class="form-control" id="search-bar" placeholder="Search">
+        </div>
+        <div class="row">
+            <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+        </div>
+    </form>
 
-{{#each body.items as |repo|}}
-    <h1>{{repo.name}}</h1>
-    <img src="{{repo.owner.avatar_url}}" /><h4>{{repo.owner.login}}</h4>
-    <h5>Description: {{repo.description}}</h5>
-    <h6>Language: {{repo.language}}</h6>
-    <h6>License: {{repo.license.name}}</h6>
-    <h6>Created: {{repo.created_at}}</h6>
-    <h6>Last Updated: {{repo.updated_at}}</h6>
-    <h6>Link: <a href="{{repo.html_url}}">{{repo.html_url}}</a></h6>
-    <h1>=====================================================</h1>
-{{/each}}
+    <div class="form-group">
+        <div class="btn-lg btn-group btn-group-justified btn-group-toggle" data-toggle="button">
+            <button type="radio" class="btn btn-lg btn-info" id="Java">Java</button>
+            <button type="radio" class="btn btn-lg btn-info" id="Python">Python</button>
+            <button type="radio" class="btn btn-lg btn-info" id="C++">C++</button>
+            <button type="radio" class="btn btn-lg btn-info" id="HTML">HTML</button>
+            <button type="radio" class="btn btn-lg btn-info" id="CSS">CSS</button>
+            <button type="radio" class="btn btn-lg btn-info" id="JavaScript">JavaScript</button>
+            <button type="radio" class="btn btn-lg btn-info" id="Ruby">Ruby</button>
+            <button type="radio" class="btn btn-lg btn-info" id="PHP">PHP</button>
+            <button type="radio" class="btn btn-lg btn-info" id="C#">C#</button>
+            {{!-- <button type="button" class="btn btn-info" id="Java">Java</button>
+            <button type="button" class="btn btn-info" id="Python">Python</button>
+            <button type="button" class="btn btn-info" id="C++">C++</button> --}}
+        </div>
+    </div>
+
+    {{#each body.items as |repo|}}
+        <h1>{{repo.name}}</h1>
+        <img src="{{repo.owner.avatar_url}}" /><h4>{{repo.owner.login}}</h4>
+        <h5>Description: {{repo.description}}</h5>
+        <h6>Language: {{repo.language}}</h6>
+        <h6>License: {{repo.license.name}}</h6>
+        <h6>Created: {{repo.created_at}}</h6>
+        <h6>Last Updated: {{repo.updated_at}}</h6>
+        <h6>Number of Stars: {{repo.stargazers_count}}</h6>
+        <h6>Number of Forks: {{repo.forks}}</h6>
+        <h6>Link: <a href="{{repo.html_url}}">{{repo.html_url}}</a></h6>
+        <h1>=====================================================</h1>
+    {{/each}}
+</div>
