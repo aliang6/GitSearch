@@ -9,15 +9,6 @@ function checkError(err) {
 
 /* GET home page. */
 router.get('/', (req, res) => {
-  const search = 'tetris';
-  const langauge = 'assembly';
-  const url = 'https://api.github.com/search/repositories?q=' + search + '+language=' + language + "&";
-
-  request.get(url, (err, response, body) => {
-    checkError(err);
-    body = JSON.parse(body);
-    console.log(body);
-  });
   res.render('index', { title: 'Express' });
 });
 
@@ -28,7 +19,31 @@ router.post('/results', (req, res) => {
 
 // GET Results
 router.get('/results', (req, res) => {
+  const search = 'tetris';
+  const language = 'assembly';
+  const options = {
+    url: 'https://api.github.com/search/repositories?q=' + search + '+language:' + language + "&sort=stars&order=desc",
+    method: 'GET',
+    headers: {
+      'User-Agent': 'aliang6',
+    }
+  };
 
+  /* const option = {
+    url: 'https://api.github.com/search/repositories?q=' + search + '+language:' + language + '&' + 'topic:open source',
+    method: 'GET',
+    headers: {
+      'User-Agent': 'aliang6',
+    }
+  } */
+
+  request.get(options, (err, response, body) => {
+    checkError(err);
+    body = JSON.parse(body);
+    console.log(body);
+    const total_count = body.total_count;
+    res.render('result', { body });
+  });
 });
 
 module.exports = router;

@@ -1,0 +1,13 @@
+<a href="/">Search Again</a>
+
+{{#each body.items as |repo|}}
+    <h1>{{repo.name}}</h1>
+    <img src="{{repo.owner.avatar_url}}" /><h4>{{repo.owner.login}}</h4>
+    <h5>Description: {{repo.description}}</h5>
+    <h6>Language: {{repo.language}}</h6>
+    <h6>License: {{repo.license.name}}</h6>
+    <h6>Created: {{repo.created_at}}</h6>
+    <h6>Last Updated: {{repo.updated_at}}</h6>
+    <h6>Link: <a href="{{repo.html_url}}">{{repo.html_url}}</a></h6>
+    <h1>==============================================================</h1>
+{{/each}}
