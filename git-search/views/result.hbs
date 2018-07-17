@@ -1,4 +1,5 @@
 <a href="/">Search Again</a>
+<h1>{{link}}</h1>
 
 {{#each body.items as |repo|}}
     <h1>{{repo.name}}</h1>
@@ -9,5 +10,5 @@
     <h6>Created: {{repo.created_at}}</h6>
     <h6>Last Updated: {{repo.updated_at}}</h6>
     <h6>Link: <a href="{{repo.html_url}}">{{repo.html_url}}</a></h6>
-    <h1>==============================================================</h1>
+    <h1>=====================================================</h1>
 {{/each}}
