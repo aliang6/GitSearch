@@ -11,10 +11,9 @@ function checkError(err) {
 router.get('/', (req, res) => {
   const search = 'tetris';
   const langauge = 'assembly';
-  const url = 'https://api.github.com/search/repositories?q=' + 
+  const url = 'https://api.github.com/search/repositories?q=' + search + '+language=' + language + "&";
 
-
-  request.get(, (err, response, body) => {
+  request.get(url, (err, response, body) => {
     checkError(err);
     body = JSON.parse(body);
     console.log(body);
