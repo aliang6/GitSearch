@@ -7,10 +7,8 @@ function checkError(err) {
   if (err) { console.log(err) };
 }
 
-// Variables for the form inputs
-var input = "";
-var selectedLanguage = "";
-var selectedLicense = "";
+// Variables from the form inputs
+var link ='https://api.github.com/search/repositories?q="open source'
 
 /* GET home page. */
 router.get('/', (req, res) => {
@@ -18,46 +16,38 @@ router.get('/', (req, res) => {
 });
 
 // POST Results
-router.post('/result', (req, res) => {
-  console.log(req.body);
-  input = req.body.input;
-  if(req.body.lang && req.body.lang !== null) {
+router.post('/results', (req, res) => { // Configure the link then redirect to GET /result
+  const input = req.body.input;
+  if(input != ''){
+    link += ' ' + input;
+  }
+  link += '"+';
+  if(typeof req.body.lang !== 'undefined' && req.body.lang !== null) {
     console.log("Hi1");
-    selectedLanguage = req.body.lang;
+    link += 'language:' + req.body.lang + '+';
   }
-  if(req.body.license && req.body.license !== null) {
+  if(typeof req.body.license !== 'undefined' && req.body.license !== null) {
     console.log("hi2");
-    selectedLicense = req.body.license;
+    link += 'license:' + req.body.license + '+';
   }
-  console.log(selectedLanguage);
-<<<<<<< HEAD
-  console.log(selectedLicense);
-  res.redirect('/results');
-});
-
-// GET Results
-router.get('/results', (req, res) => {
-  const link = 'https://api.github.com/search/repositories?q=open source ' + input + '+language:' + selectedLanguage + '+license:' + selectedLicense + "&sort=stars&order=desc&is:public";
-=======
+  link += '&sort=stars&order=desc&is:public';
   res.redirect('/result');
 });
 
 // GET Results
-router.get('/result', (req, res) => {
-  const link = 'https://api.github.com/search/repositories?q=open source ' + input + '+language:' + selectedLanguage + "&sort=stars&order=desc&is:public";
->>>>>>> e518d304f13461fcc90789e2a3d9eea599739e13
-  const options = {
+router.get('/result', (req, res) => { 
+  console.log(link);
+  const options = { // Setup JSON for the request
     url: link,
     method: 'GET',
     headers: {
-      'User-Agent': 'aliang6',
+      'User-Agent': '',
     }
   };
 
-  request.get(options, (err, response, body) => {
+  request.get(options, (err, response, body) => { // Request to GitHub's API
     checkError(err);
     body = JSON.parse(body);
-    //console.log(body);
     // Format dates and time for created and updated
     for (let item of body.items) {
       let tmp = item.created_at.substring(0, 10);
@@ -74,6 +64,7 @@ router.get('/result', (req, res) => {
       }
     }
     const total_count = body.total_count;
+    link = 'https://api.github.com/search/repositories?q="open source';
     res.render('result', { body, link, total_count });
   });
 });

@@ -1,108 +1,73 @@
 <div>
-<<<<<<< HEAD
-  <h1>{{title}}</h1>
+  <div id="header-text">
+    <h1 id="index-title">{{title}}</h1>
+    <h3 id="index-phrase" >Helping you find open source projects</h3>
+  </div>
+
   <div class="container input" id = "search-form">
     <form action="/results" method="POST">
-
-        <div class="form-group">
-            <input type="text" placeholder="Search Projects..." class="search">
-            <button type ="submit" name="input" class="button" value=""><img src = "resources/Minimal-Magnifying-Glass.png" alt = "magnifying glass"></button>
-        </div>
-
-        <h2>Language:</h2>
-        <div class="form-group">
-            <div id="lang-btns" class="btn-lg btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-info">
-                    <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="java" value="java"> Java
-                </label>
-                <label class="btn btn-info">
-                    <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="python" value="python"> Python
-                </label>
-                <label class="btn btn-info">
-                    <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="c++" value="c++"> C++
-                </label>
-                <label class="btn btn-info">
-                    <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="html" value="html"> HTML
-                </label>
-                <label class="btn btn-info">
-                    <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="python" value="css"> CSS
-                </label>
-                <label class="btn btn-info">
-                    <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="js" value="javascript"> JavaScript
-                </label>
-                <label class="btn btn-info">
-                    <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="ruby" value="ruby"> Ruby
-                </label>
-                <label class="btn btn-info">
-                    <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="php" value="php"> PHP
-                </label>
-                <label class="btn btn-info">
-                    <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="c#" value="c#"> C#
-                </label>
-                <label class="btn btn-info active">
-                    <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="all"> Any
-                </label>
-            </div>
-        </div>
-        <h2>License:</h2>
-        <div class="form-group">
-          <div class="btn-lg btn-group-toggle" data-toggle="button">
-            <label class="btn btn-info">
-              <input type="radio" class="btn btn-lg btn-info" name="license" autocomplete="off" id="MIT" value="mit"> MIT License
-            </label>
-            <label class="btn btn-info">
-              <input type="radio" class="btn btn-lg btn-info" name="license" autocomplete="off" id="GNU" value="lgpl-3.0"> GNU GPLv3
-            </label>
-            <label class="btn btn-info">
-              <input type="radio" class="btn btn-lg btn-info" name="license" autocomplete="off" id="Apache" value="apache-2.0"> Apache License 2.0
-            </label>
-            <label class="btn btn-info">
-              <input type="radio" class="btn btn-lg btn-info" name="license" autocomplete="off" id="none" value="none"> None
-            </label>
-            <label class="btn btn-info active">
-              <input type="radio" class="btn btn-lg btn-info" name="license" autocomplete="off" id="any-license"> Any
-            </label>
-=======
-  <h1 class="title">{{title}}</h1>
-  <div class="container cont input" id = "search-form">
-    <form action="/result" class="search-form" method="POST">
-      <input type="text" placeholder="Search..." class="search" required>
-      <button type ="submit" class="search-button" value="Search"><img src = "resources/Minimal-Magnifying-Glass.png" class="search-image" alt = "magnifying glass"></button>
-    </form>
-  </div>
-  <div class="container cont">
-    <h2>Language:</h2>
-  </div>
-  <div class="container cont">
-    <div class="form-group">
-        <div class="btn-lg btn-group btn-group-justified btn-group-toggle" data-toggle="button">
-            <button type="radio" class="btn btn-lg btn-info" id="Java">Java</button>
-            <button type="radio" class="btn btn-lg btn-info" id="Python">Python</button>
-            <button type="radio" class="btn btn-lg btn-info" id="C++">C++</button>
-            <button type="radio" class="btn btn-lg btn-info" id="HTML">HTML</button>
-            <button type="radio" class="btn btn-lg btn-info" id="CSS">CSS</button>
-            <button type="radio" class="btn btn-lg btn-info" id="JavaScript">JavaScript</button>
-            <button type="radio" class="btn btn-lg btn-info" id="Ruby">Ruby</button>
-            <button type="radio" class="btn btn-lg btn-info" id="PHP">PHP</button>
-            <button type="radio" class="btn btn-lg btn-info" id="C#">C#</button>
-            {{!-- <button type="button" class="btn btn-info" id="Java">Java</button>
-            <button type="button" class="btn btn-info" id="Python">Python</button>
-            <button type="button" class="btn btn-info" id="C++">C++</button> --}}
-        </div>
-    </div>
-  </div>
-  <div class="container cont">
-    <h2>License:</h2>
-  </div>
-  <div class="container cont">
       <div class="form-group">
-          <div class="btn-lg btn-group btn-group-justified btn-group-toggle" data-toggle="button">
-              <button type="radio" class="btn btn-lg btn-info" id="GNU">GNU GPLv3</button>
-              <button type="radio" class="btn btn-lg btn-info" id="MIT">MIT License</button>
-              <button type="radio" class="btn btn-lg btn-info" id="Apache">Apache License 2.0</button>
->>>>>>> e518d304f13461fcc90789e2a3d9eea599739e13
+        <input type="text" name="input" placeholder="Search Projects..." autocomplete="off" class="search">
+      </div>
+
+      <h2>Language:</h2>
+      <div class="form-group">
+          <div id="lang-btns" class="btn-lg btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-info">
+                  <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="java" value="java"> Java
+              </label>
+              <label class="btn btn-info">
+                  <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="python" value="python"> Python
+              </label>
+              <label class="btn btn-info">
+                  <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="c++" value="c++"> C++
+              </label>
+              <label class="btn btn-info">
+                  <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="html" value="html"> HTML
+              </label>
+              <label class="btn btn-info">
+                  <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="python" value="css"> CSS
+              </label>
+              <label class="btn btn-info">
+                  <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="js" value="javascript"> JavaScript
+              </label>
+              <label class="btn btn-info">
+                  <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="ruby" value="ruby"> Ruby
+              </label>
+              <label class="btn btn-info">
+                  <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="php" value="php"> PHP
+              </label>
+              <label class="btn btn-info">
+                  <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="c#" value="c#"> C#
+              </label>
+              <label class="btn btn-info active">
+                  <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="all"> Any
+              </label>
           </div>
       </div>
+
+      <h2>License:</h2>
+      <div class="form-group">
+        <div class="btn-lg btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-info">
+            <input type="radio" class="btn btn-lg btn-info" name="license" autocomplete="off" id="MIT" value="mit"> MIT License
+          </label>
+          <label class="btn btn-info">
+            <input type="radio" class="btn btn-lg btn-info" name="license" autocomplete="off" id="GNU" value="lgpl-3.0"> GNU GPLv3
+          </label>
+          <label class="btn btn-info">
+            <input type="radio" class="btn btn-lg btn-info" name="license" autocomplete="off" id="Apache" value="apache-2.0"> Apache License 2.0
+          </label>
+          <label class="btn btn-info">
+            <input type="radio" class="btn btn-lg btn-info" name="license" autocomplete="off" id="none" value="none"> None
+          </label>
+          <label class="btn btn-info active">
+            <input type="radio" class="btn btn-lg btn-info" name="license" autocomplete="off" id="any-license"> Any
+          </label>
+        </div>
+      </div>
+
+      <button type ="submit" class="button" value=""><img class="search-image" src="resources/Minimal-Magnifying-Glass.png" alt="magnifying glass"></button>
     </form>
 
   </div>
