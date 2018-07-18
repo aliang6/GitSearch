@@ -30,7 +30,7 @@ router.post('/results', (req, res) => { // Configure the link then redirect to G
     console.log("hi2");
     link += 'license:' + req.body.license + '+';
   }
-  link += '&sort=stars&order=desc&is:public';
+  link += '&sort=stars&order=desc&is:public&';
   res.redirect('/result');
 });
 
