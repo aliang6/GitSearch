@@ -10,6 +10,7 @@ function checkError(err) {
 // Variables for the form inputs
 var input = "";
 var selectedLanguage = "";
+var selectedLicense = "";
 
 /* GET home page. */
 router.get('/', (req, res) => {
@@ -20,16 +21,22 @@ router.get('/', (req, res) => {
 router.post('/results', (req, res) => {
   console.log(req.body);
   input = req.body.input;
-  if(req.body.lang !== null){
+  if(req.body.lang && req.body.lang !== null) {
+    console.log("Hi1");
     selectedLanguage = req.body.lang;
   }
+  if(req.body.license && req.body.license !== null) {
+    console.log("hi2");
+    selectedLicense = req.body.license;
+  }
   console.log(selectedLanguage);
+  console.log(selectedLicense);
   res.redirect('/results');
 });
 
 // GET Results
 router.get('/results', (req, res) => {
-  const link = 'https://api.github.com/search/repositories?q=open source ' + input + '+language:' + selectedLanguage + "&sort=stars&order=desc&is:public";
+  const link = 'https://api.github.com/search/repositories?q=open source ' + input + '+language:' + selectedLanguage + '+license:' + selectedLicense + "&sort=stars&order=desc&is:public";
   const options = {
     url: link,
     method: 'GET',
