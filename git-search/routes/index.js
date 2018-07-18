@@ -7,7 +7,9 @@ function checkError(err) {
   if (err) { console.log(err) };
 }
 
+// Variables for the form inputs
 var input = "";
+var selectedLanguage = "";
 
 /* GET home page. */
 router.get('/', (req, res) => {
@@ -18,13 +20,16 @@ router.get('/', (req, res) => {
 router.post('/result', (req, res) => {
   console.log(req.body);
   input = req.body.input;
+  if(req.body.lang !== null){
+    selectedLanguage = req.body.lang;
+  }
+  console.log(selectedLanguage);
   res.redirect('/result');
 });
 
 // GET Results
 router.get('/result', (req, res) => {
-  const language = '';
-  const link = 'https://api.github.com/search/repositories?q=' + input + '+language:' + language + "&sort=stars&order=desc&is:public";
+  const link = 'https://api.github.com/search/repositories?q=open source ' + input + '+language:' + selectedLanguage + "&sort=stars&order=desc&is:public";
   const options = {
     url: link,
     method: 'GET',
@@ -36,22 +41,24 @@ router.get('/result', (req, res) => {
   request.get(options, (err, response, body) => {
     checkError(err);
     body = JSON.parse(body);
-    console.log(body);
+    //console.log(body);
+    // Format dates and time for created and updated
     for (let item of body.items) {
-      // Format dates and time for created and updated
       let tmp = item.created_at.substring(0, 10);
       tmp += ' ' + item.created_at.substring(11, 19);
       item.created_at = tmp;
       tmp = item.updated_at.substring(0, 10);
       tmp += ' ' + item.updated_at.substring(11, 19);
       item.updated_at = tmp;
-      if(item.license === null){
+      if(item.license === null) {
         item.license = { name: 'No License', };
+      }
+      if(item.language === null) {
+        item.language = 'No Language';
       }
     }
     const total_count = body.total_count;
-    console.log(total_count);
-    res.render('result', { body, link });
+    res.render('result', { body, link, total_count });
   });
 });
 
