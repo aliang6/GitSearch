@@ -14,11 +14,11 @@ var selectedLicense = "";
 
 /* GET home page. */
 router.get('/', (req, res) => {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'GitSearch' });
 });
 
 // POST Results
-router.post('/results', (req, res) => {
+router.post('/result', (req, res) => {
   console.log(req.body);
   input = req.body.input;
   if(req.body.lang && req.body.lang !== null) {
@@ -30,6 +30,7 @@ router.post('/results', (req, res) => {
     selectedLicense = req.body.license;
   }
   console.log(selectedLanguage);
+<<<<<<< HEAD
   console.log(selectedLicense);
   res.redirect('/results');
 });
@@ -37,6 +38,14 @@ router.post('/results', (req, res) => {
 // GET Results
 router.get('/results', (req, res) => {
   const link = 'https://api.github.com/search/repositories?q=open source ' + input + '+language:' + selectedLanguage + '+license:' + selectedLicense + "&sort=stars&order=desc&is:public";
+=======
+  res.redirect('/result');
+});
+
+// GET Results
+router.get('/result', (req, res) => {
+  const link = 'https://api.github.com/search/repositories?q=open source ' + input + '+language:' + selectedLanguage + "&sort=stars&order=desc&is:public";
+>>>>>>> e518d304f13461fcc90789e2a3d9eea599739e13
   const options = {
     url: link,
     method: 'GET',

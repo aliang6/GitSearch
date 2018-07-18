@@ -1,4 +1,5 @@
 <div>
+<<<<<<< HEAD
   <h1>{{title}}</h1>
   <div class="container input" id = "search-form">
     <form action="/results" method="POST">
@@ -61,6 +62,45 @@
             <label class="btn btn-info active">
               <input type="radio" class="btn btn-lg btn-info" name="license" autocomplete="off" id="any-license"> Any
             </label>
+=======
+  <h1 class="title">{{title}}</h1>
+  <div class="container cont input" id = "search-form">
+    <form action="/result" class="search-form" method="POST">
+      <input type="text" placeholder="Search..." class="search" required>
+      <button type ="submit" class="search-button" value="Search"><img src = "resources/Minimal-Magnifying-Glass.png" class="search-image" alt = "magnifying glass"></button>
+    </form>
+  </div>
+  <div class="container cont">
+    <h2>Language:</h2>
+  </div>
+  <div class="container cont">
+    <div class="form-group">
+        <div class="btn-lg btn-group btn-group-justified btn-group-toggle" data-toggle="button">
+            <button type="radio" class="btn btn-lg btn-info" id="Java">Java</button>
+            <button type="radio" class="btn btn-lg btn-info" id="Python">Python</button>
+            <button type="radio" class="btn btn-lg btn-info" id="C++">C++</button>
+            <button type="radio" class="btn btn-lg btn-info" id="HTML">HTML</button>
+            <button type="radio" class="btn btn-lg btn-info" id="CSS">CSS</button>
+            <button type="radio" class="btn btn-lg btn-info" id="JavaScript">JavaScript</button>
+            <button type="radio" class="btn btn-lg btn-info" id="Ruby">Ruby</button>
+            <button type="radio" class="btn btn-lg btn-info" id="PHP">PHP</button>
+            <button type="radio" class="btn btn-lg btn-info" id="C#">C#</button>
+            {{!-- <button type="button" class="btn btn-info" id="Java">Java</button>
+            <button type="button" class="btn btn-info" id="Python">Python</button>
+            <button type="button" class="btn btn-info" id="C++">C++</button> --}}
+        </div>
+    </div>
+  </div>
+  <div class="container cont">
+    <h2>License:</h2>
+  </div>
+  <div class="container cont">
+      <div class="form-group">
+          <div class="btn-lg btn-group btn-group-justified btn-group-toggle" data-toggle="button">
+              <button type="radio" class="btn btn-lg btn-info" id="GNU">GNU GPLv3</button>
+              <button type="radio" class="btn btn-lg btn-info" id="MIT">MIT License</button>
+              <button type="radio" class="btn btn-lg btn-info" id="Apache">Apache License 2.0</button>
+>>>>>>> e518d304f13461fcc90789e2a3d9eea599739e13
           </div>
       </div>
     </form>

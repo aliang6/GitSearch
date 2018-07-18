@@ -7,13 +7,13 @@ a {
   color: #00B7FF;
 }
 
-h1 {
+.title {
   text-align: center;
   font-size: 100px;
   margin-top: 2%;
 }
 
-.container {
+.cont {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,7 +24,7 @@ h1 {
   font-size: 25px;
 }
 
-img {
+.search-image {
   height: 36px;
   width: 45px;
 }
@@ -36,7 +36,7 @@ img {
   align-items: center;
 }
 
-form {
+.search-form {
                 width:500px;
                 margin:50px auto;
 }
@@ -48,7 +48,7 @@ form {
                 height: 50px;
                 font-size: 25px;
 }
-.button {
+.search-button {
                 position:relative;
                 padding:6px 15px;
                 left:-8px;
