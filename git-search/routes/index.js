@@ -11,18 +11,18 @@ var input = "";
 
 /* GET home page. */
 router.get('/', (req, res) => {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'GitSearch' });
 });
 
 // POST Results
-router.post('/results', (req, res) => {
+router.post('/result', (req, res) => {
   console.log(req.body);
   input = req.body.input;
-  res.redirect('/results');
+  res.redirect('/result');
 });
 
 // GET Results
-router.get('/results', (req, res) => {
+router.get('/result', (req, res) => {
   const language = '';
   const link = 'https://api.github.com/search/repositories?q=' + input + '+language:' + language + "&sort=stars&order=desc&is:public";
   const options = {

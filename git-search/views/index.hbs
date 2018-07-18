@@ -1,15 +1,15 @@
 <div>
-  <h1>{{title}}</h1>
-  <div class="container input" id = "search-form">
-    <form>
+  <h1 class="title">{{title}}</h1>
+  <div class="container cont input" id = "search-form">
+    <form action="/result" class="search-form" method="POST">
       <input type="text" placeholder="Search..." class="search" required>
-      <button type ="submit" class="button" value="Search"><img src = "resources/Minimal-Magnifying-Glass.png" alt = "magnifying glass"></button>
+      <button type ="submit" class="search-button" value="Search"><img src = "resources/Minimal-Magnifying-Glass.png" class="search-image" alt = "magnifying glass"></button>
     </form>
   </div>
-  <div class="container">
+  <div class="container cont">
     <h2>Language:</h2>
   </div>
-  <div class="container">
+  <div class="container cont">
     <div class="form-group">
         <div class="btn-lg btn-group btn-group-justified btn-group-toggle" data-toggle="button">
             <button type="radio" class="btn btn-lg btn-info" id="Java">Java</button>
@@ -27,10 +27,10 @@
         </div>
     </div>
   </div>
-  <div class="container">
+  <div class="container cont">
     <h2>License:</h2>
   </div>
-  <div class="container">
+  <div class="container cont">
       <div class="form-group">
           <div class="btn-lg btn-group btn-group-justified btn-group-toggle" data-toggle="button">
               <button type="radio" class="btn btn-lg btn-info" id="GNU">GNU GPLv3</button>
