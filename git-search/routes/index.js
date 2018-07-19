@@ -70,8 +70,10 @@ router.get('/results/page=:page', (req, res) => {
   link = link.substring(0, pageIndex + 5);
   if(req.body.page){
     link += req.body.page;
+    curr_page = req.body.page;
   } else {
     link += req.params.page;
+    curr_page = req.params.page;
   }
   
   console.log(link);
@@ -108,11 +110,11 @@ router.get('/results/page=:page', (req, res) => {
       }
     }
     
-    prev_page = curr_page - 1;
-    next_page = curr_page + 1;
+    prev_page = parseInt(curr_page) - 1;
+    next_page = parseInt(curr_page) + 1;
     console.log('Prev page = ' + prev_page);
     console.log('Next page = ' + next_page);
-    if(curr_page + 1 > total_pages) { next_page = 0 }
+    if(parseInt(next_page) > parseInt(total_pages)) { next_page = 0 }
 
     res.render('result', { body, link, total_pages, curr_page, prev_page, next_page });
   });

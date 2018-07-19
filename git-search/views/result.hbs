@@ -1,6 +1,5 @@
 <a href="/">Search Again</a>
 <div class="container">
-    <h3>Total Results: {{total_count}}</h3>
     <h3>Current Page: {{curr_page}}</h3>
     <h3>Total Pages: {{total_pages}}</h3>
     <form action="/results/page" method="POST">
@@ -38,7 +37,7 @@
                 </form>
             </li>
             <li class="page-item"><a class="page-link" href="#">{{curr_page}}</a></li>
-            {{#if curr_page}}
+            {{#if next_page}}
                 <li class="page-item">
             {{else}}
                 <li class="page-item disabled">
