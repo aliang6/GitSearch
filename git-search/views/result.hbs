@@ -1,6 +1,13 @@
 <a href="/">Search Again</a>
 <div class="container">
     <h3>Total Results: {{total_count}}</h3>
+    <h3>Current Page: {{curr_page}}</h3>
+    <h3>Total Pages: {{total_pages}}</h3>
+    <form action="/results/page" method="POST">
+        <div class="form-group">
+            <input type="text" name="page" placeholder="Enter a page number: e.g. 15" autocomplete="off" class="search">
+        </div>
+    </form>
 
     {{#each body.items as |repo|}}
           <div class="card">
@@ -18,4 +25,28 @@
             </div>
           </div>
     {{/each}}
+
+    <nav>
+        <ul class="pagination justify-content-end">
+            {{#if prev_page}}
+                <li class="page-item">
+            {{else}}
+                <li class="page-item disabled">
+            {{/if}}
+                <form action="/results/page" method="POST">
+                    <button class="page-link" name="page" type ="submit" class="button" value={{prev_page}}>Previous</button>
+                </form>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">{{curr_page}}</a></li>
+            {{#if curr_page}}
+                <li class="page-item">
+            {{else}}
+                <li class="page-item disabled">
+            {{/if}}
+                <form action="/results/page" method="POST">
+                    <button class="page-link" name="page" type="submit" class="button" value={{next_page}}>Next</button>
+                </form>
+            </li>
+        </ul>
+    </nav>
 </div>

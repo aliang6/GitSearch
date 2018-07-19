@@ -7,11 +7,24 @@ function checkError(err) {
   if (err) { console.log(err) };
 }
 
-// Variables from the form inputs
+// Helper variables and variables from the form inputs
 var link ='https://api.github.com/search/repositories?q="open source'
+var total_pages = 0;
+var prev_page = 0;
+var next_page = 0;
+var curr_page = 1;
+
+// Helper function
+function getTotalPages(link) { // Uses pagination links to get the total number of pages
+  const index = link.lastIndexOf('page');
+  total_pages = parseInt(link.substring(index + 5, link.length));
+  console.log(total_pages);
+  return total_pages;
+}
 
 /* GET home page. */
 router.get('/', (req, res) => {
+  link = 'https://api.github.com/search/repositories?q="open source';
   res.render('index', { title: 'GitSearch' });
 });
 
@@ -30,12 +43,37 @@ router.post('/results', (req, res) => { // Configure the link then redirect to G
     console.log("hi2");
     link += 'license:' + req.body.license + '+';
   }
-  link += '&sort=stars&order=desc&is:public&';
-  res.redirect('/result');
+  link += '&sort=stars&order=desc&is:public&per_page=10&page=1';
+  res.redirect('/results/page=1');
+});
+
+// POST Results Page
+router.post('/results/page', (req, res) => { // Checks input and properly configures the link
+  const desired_page = req.body.page;
+  console.log(desired_page);
+  if(isNaN(desired_page) || desired_page <= 0) { // Checks if input is an int
+    curr_page = 1;
+    res.redirect('/results/page=1');
+  } else if (desired_page > total_pages) {
+    curr_page = total_pages;
+    res.redirect('/results/page=' + total_pages);
+  }
+  else {
+    curr_page = desired_page;
+    res.redirect('/results/page=' + desired_page);
+  }
 });
 
 // GET Results
-router.get('/result', (req, res) => { 
+router.get('/results/page=:page', (req, res) => {
+  const pageIndex = link.lastIndexOf('page'); 
+  link = link.substring(0, pageIndex + 5);
+  if(req.body.page){
+    link += req.body.page;
+  } else {
+    link += req.params.page;
+  }
+  
   console.log(link);
   const options = { // Setup JSON for the request
     url: link,
@@ -47,6 +85,12 @@ router.get('/result', (req, res) => {
 
   request.get(options, (err, response, body) => { // Request to GitHub's API
     checkError(err);
+    if(total_pages == 0 && response.headers.link){
+      var first = response.headers.link;
+      var pagination_arr = first.split(' ');
+      console.log(pagination_arr);
+      getTotalPages(pagination_arr[2]);
+    }
     body = JSON.parse(body);
     // Format dates and time for created and updated
     for (let item of body.items) {
@@ -63,9 +107,14 @@ router.get('/result', (req, res) => {
         item.language = 'No Language';
       }
     }
-    const total_count = body.total_count;
-    link = 'https://api.github.com/search/repositories?q="open source';
-    res.render('result', { body, link, total_count });
+    
+    prev_page = curr_page - 1;
+    next_page = curr_page + 1;
+    console.log('Prev page = ' + prev_page);
+    console.log('Next page = ' + next_page);
+    if(curr_page + 1 > total_pages) { next_page = 0 }
+
+    res.render('result', { body, link, total_pages, curr_page, prev_page, next_page });
   });
 });
 
