@@ -1,10 +1,15 @@
 @font-face {
-  font-family: DeliciousRoman;
-  src: url(/Delicious-Roman.otf);
+  font-family: RaleWay;
+  src: url(font/raleway-master/Raleway-Thin.otf);
+}
+
+@font-face {
+  font-family: Capsuula;
+  src: url(font/capsuula/Capsuula.ttf);
 }
 
 body {
-  font: 14px "Raleway", "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px Capsuula, Raleway, "Lucida Grande", Helvetica, Arial, sans-serif;
   background-image: url("../resources/git-background.png");
   background-size: auto;
   background-attachment: fixed;
@@ -93,6 +98,7 @@ a {
   top: 15px;
   position: fixed;
   color: lightgrey;
+  z-index: 2;
 }
 
 #search-again:hover {
@@ -199,7 +205,19 @@ ul {
 }
 
 #pagination-list {
-  position: absolute;
+  position: static;
   bottom: 15px;
   right: 15px;
+}
+
+#total-num-pages {
+  color: lightgrey;
+  margin: 10px 0px -30px 40px;
+}
+
+.char-box {
+  margin: 10px;
+  padding: 10px;
+  border: solid lightgrey;
+  border-radius: 10px;
 }

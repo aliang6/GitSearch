@@ -2,22 +2,24 @@
 <div class="container">
     
     <div class="row">
-        <div class="col-4">
-            <h3>Total Pages: {{total_pages}}</h3>
-        </div>
-        <div class="col-4">
+        <h3 id="total-num-pages">Total Pages: {{total_pages}}</h3>
+    </div>
+    {{#if total_pages}}
+        <div class="row">
             <form action="/results/page" method="POST">
                 <div class="form-group">
                     <input type="text" name="page" placeholder="Enter a page number: e.g. 15" autocomplete="off" class="search" id="search-page-input">
                 </div>
             </form>
         </div>
-    </div>
+    {{/if}}
 
     {{#each body.items as |repo|}}
         <div class="card">
             <h1 class="repo-name">{{repo.name}}</h1>
-            <img class="card-image" src="{{repo.owner.avatar_url}}" /><h4 class="center">{{repo.owner.login}}</h4>
+            <div class="char-box">
+                <img class="card-image" src="{{repo.owner.avatar_url}}" /><h4 class="center">{{repo.owner.login}}</h4>
+            </div>
             <h5 class="center">Description: {{repo.description}}</h5>
             <div class="card-container">
                 <div class="descript-box">
@@ -39,27 +41,30 @@
         </div>
     {{/each}}
 
-    <nav>
-        <ul class="pagination justify-content-end" id="pagination-list">
-            {{#if prev_page}}
-                <li class="page-item">
-            {{else}}
-                <li class="page-item disabled">
-            {{/if}}
-                <form action="/results/page" method="POST">
-                    <button class="page-link" name="page" type ="submit" class="button" value={{prev_page}}>Previous</button>
-                </form>
-            </li>
-            <li class="page-item"><a class="page-link">{{curr_page}}</a></li>
-            {{#if next_page}}
-                <li class="page-item">
-            {{else}}
-                <li class="page-item disabled">
-            {{/if}}
-                <form action="/results/page" method="POST">
-                    <button class="page-link" name="page" type="submit" class="button" value={{next_page}}>Next</button>
-                </form>
-            </li>
-        </ul>
-    </nav>
+    {{#if total_pages}}
+        <nav>
+            <ul class="pagination justify-content-end" id="pagination-list">
+                {{#if prev_page}}
+                    <li class="page-item">
+                {{else}}
+                    <li class="page-item disabled">
+                {{/if}}
+                    <form action="/results/page" method="POST">
+                        <button class="page-link" name="page" type ="submit" class="button" value={{prev_page}}>Previous</button>
+                    </form>
+                </li>
+                <li class="page-item"><a class="page-link">{{curr_page}}</a></li>
+                {{#if next_page}}
+                    <li class="page-item">
+                {{else}}
+                    <li class="page-item disabled">
+                {{/if}}
+                    <form action="/results/page" method="POST">
+                        <button class="page-link" name="page" type="submit" class="button" value={{next_page}}>Next</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    {{else}}
+    {{/if}}
 </div>
