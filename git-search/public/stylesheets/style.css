@@ -1,5 +1,12 @@
+header {
+  background-image: url("../resources/git-background.png");
+  background-size: auto;
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -25,8 +32,8 @@ a {
 }
 
 .search-image {
-  height: 360px;
-  width: 450px;
+  height: 40px;
+  width: 45px;
 }
 
 .input {
@@ -121,8 +128,29 @@ a {
 }
 
 #index-phrase {
+  color: white;
   display: flex;
   justify-content: center;
   font-size: 2.3em;
   margin-bottom: 3%;
+}
+
+ul {
+  padding-left: 0;
+}
+
+.logo {
+  height: 40px;
+  width: 40px;
+}
+
+.form-group {
+  margin: 20px;
+  padding: 25px;
+}
+
+#search_again {
+  left: 10px;
+  bottom: 10px;
+  position: fixed;
 }

@@ -6,47 +6,54 @@
 
   <div class="container input" id = "search-form">
     <form action="/results" method="POST">
-      <div class="form-group">
-        <input type="text" name="input" placeholder="Search Projects..." autocomplete="off" class="search">
-      </div>
 
-      <h2>Primary language:</h2>
+      <h2 style="color:white;">Select a primary language:</h2>
       <div class="form-group">
           <div id="lang-btns" class="btn-lg btn-group-toggle" data-toggle="buttons">
               <label class="btn btn-info">
+                <ul> <img class="logo" src="/resources/java-icon.png" alt="java_logo"> </ul>
                   <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="java" value="java"> Java
               </label>
               <label class="btn btn-info">
+                <ul> <img class="logo" src="/resources/python-icon.png" alt="python_logo"> </ul>
                   <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="python" value="python"> Python
               </label>
               <label class="btn btn-info">
+                <ul> <img class="logo" src="/resources/c-plus-plus-icon.png" alt="c++_logo"> </ul>
                   <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="c++" value="c++"> C++
               </label>
               <label class="btn btn-info">
+                <ul> <img class="logo" src="/resources/html-icon.png" alt="html_logo"> </ul>
                   <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="html" value="html"> HTML
               </label>
               <label class="btn btn-info">
+                <ul> <img class="logo" src="/resources/css-icon.png" alt="css_logo"> </ul>
                   <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="python" value="css"> CSS
               </label>
               <label class="btn btn-info">
+                <ul> <img class="logo" src="/resources/javascript-icon.png" alt="js_logo"> </ul>
                   <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="js" value="javascript"> JavaScript
               </label>
               <label class="btn btn-info">
+                <ul> <img class="logo" src="/resources/ruby-icon.png" alt="ruby_logo"> </ul>
                   <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="ruby" value="ruby"> Ruby
               </label>
               <label class="btn btn-info">
+                <ul> <img class="logo" src="/resources/php-icon.png" alt="php_logo"> </ul>
                   <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="php" value="php"> PHP
               </label>
               <label class="btn btn-info">
+                <ul> <img class="logo" src="/resources/c-sharp-icon.png" alt="c#_logo"> </ul>
                   <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="c#" value="c#"> C#
               </label>
               <label class="btn btn-info active">
+                <ul> <img class="logo" src="/resources/any-icon.png" alt="any_logo"> </ul>
                   <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="all"> Any
               </label>
           </div>
       </div>
 
-      <h2>Project License:</h2>
+      <h2 style="color:white;">Select a project license:</h2>
       <div class="form-group">
         <div class="btn-lg btn-group-toggle" data-toggle="buttons">
           <label class="btn btn-info">
@@ -67,7 +74,10 @@
         </div>
       </div>
 
-      <button type ="submit" class="button" value=""><img class="search-image" src="resources/Minimal-Magnifying-Glass.png" alt="magnifying glass"></button>
+        <div class="form-group">
+          <input type="text" name="input" placeholder="Search Projects..." autocomplete="off" class="search">
+            <button type ="submit" class="button" value=""><img class="search-image" src="resources/Minimal-Magnifying-Glass.png" alt="magnifying glass"></button>
+        </div>
     </form>
 
   </div>
