@@ -31,6 +31,7 @@ router.get('/', (req, res) => {
 // POST Results
 router.post('/results', (req, res) => { // Configure the link then redirect to GET /result
   const input = req.body.input;
+  total_pages = 0;
   if(input != ''){
     link += ' ' + input;
   }
@@ -92,21 +93,24 @@ router.get('/results/page=:page', (req, res) => {
       var pagination_arr = first.split(' ');
       console.log(pagination_arr);
       getTotalPages(pagination_arr[2]);
+      console.log(total_pages);
     }
     body = JSON.parse(body);
     // Format dates and time for created and updated
-    for (let item of body.items) {
-      let tmp = item.created_at.substring(0, 10);
-      tmp += ' ' + item.created_at.substring(11, 19);
-      item.created_at = tmp;
-      tmp = item.updated_at.substring(0, 10);
-      tmp += ' ' + item.updated_at.substring(11, 19);
-      item.updated_at = tmp;
-      if(item.license === null) {
-        item.license = { name: 'No License', };
-      }
-      if(item.language === null) {
-        item.language = 'No Language';
+    if(body.items && body.items[0]) {
+      for (let item of body.items) {
+        let tmp = item.created_at.substring(0, 10);
+        tmp += ' ' + item.created_at.substring(11, 19);
+        item.created_at = tmp;
+        tmp = item.updated_at.substring(0, 10);
+        tmp += ' ' + item.updated_at.substring(11, 19);
+        item.updated_at = tmp;
+        if(item.license === null) {
+          item.license = { name: 'No License', };
+        }
+        if(item.language === null) {
+          item.language = 'No Language';
+        }
       }
     }
     

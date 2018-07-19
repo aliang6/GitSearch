@@ -1,32 +1,46 @@
-<a href="/">Search Again</a>
+<a class="btn btn-primary" id="search-again" href="/">Search Again</a>
 <div class="container">
-    <h3>Current Page: {{curr_page}}</h3>
-    <h3>Total Pages: {{total_pages}}</h3>
-    <form action="/results/page" method="POST">
-        <div class="form-group">
-            <input type="text" name="page" placeholder="Enter a page number: e.g. 15" autocomplete="off" class="search">
+    
+    <div class="row">
+        <div class="col-4">
+            <h3>Total Pages: {{total_pages}}</h3>
         </div>
-    </form>
+        <div class="col-4">
+            <form action="/results/page" method="POST">
+                <div class="form-group">
+                    <input type="text" name="page" placeholder="Enter a page number: e.g. 15" autocomplete="off" class="search" id="search-page-input">
+                </div>
+            </form>
+        </div>
+    </div>
 
     {{#each body.items as |repo|}}
-          <div class="card">
+        <div class="card">
             <h1 class="repo-name">{{repo.name}}</h1>
             <img class="card-image" src="{{repo.owner.avatar_url}}" /><h4 class="center">{{repo.owner.login}}</h4>
             <h5 class="center">Description: {{repo.description}}</h5>
             <div class="card-container">
-              <h6 class="center">Language: {{repo.language}}</h6>
-              <h6 class="center">License: {{repo.license.name}}</h6>
-              <h6 class="center">Created: {{repo.created_at}}</h6>
-              <h6 class="center">Last Updated: {{repo.updated_at}}</h6>
-              <h6 class="center">Stars: {{repo.stargazers_count}}</h6>
-              <h6 class="center">Forks: {{repo.forks}}</h6>
-              <h6 class="center"><a href="{{repo.html_url}}">{{repo.html_url}}</a></h6>
+                <div class="descript-box">
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-4">
+                    <h6 class="center">Language: {{repo.language}}</h6>
+                    <h6 class="center">License: {{repo.license.name}}</h6>
+                    <h6 class="center">Created: {{repo.created_at}}</h6>
+                    <h6 class="center">Last Updated: {{repo.updated_at}}</h6>
+                    </div>
+                    <div class="col-4">
+                    <h6 class="center">Stars: {{repo.stargazers_count}}</h6>
+                    <h6 class="center">Forks: {{repo.forks}}</h6>
+                    </div>
+                </div>
             </div>
-          </div>
+            </div>
+            <h6 class="center"><a href="{{repo.html_url}}">{{repo.html_url}}</a></h6>
+        </div>
     {{/each}}
 
     <nav>
-        <ul class="pagination justify-content-end">
+        <ul class="pagination justify-content-end" id="pagination-list">
             {{#if prev_page}}
                 <li class="page-item">
             {{else}}
@@ -36,7 +50,7 @@
                     <button class="page-link" name="page" type ="submit" class="button" value={{prev_page}}>Previous</button>
                 </form>
             </li>
-            <li class="page-item"><a class="page-link" href="#">{{curr_page}}</a></li>
+            <li class="page-item"><a class="page-link">{{curr_page}}</a></li>
             {{#if next_page}}
                 <li class="page-item">
             {{else}}
