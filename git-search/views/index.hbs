@@ -7,7 +7,7 @@
   <div class="container">
     <form action="/results" method="POST">
 
-      <h2 class="index-prompts">Select a primary language:</h2>
+      <h2 class="index-prompts">Step 1: Select a primary language:</h2>
       <div class="form-group">
         <div id="lang-btns" class="btn-lg btn-group-toggle buttons-div" data-toggle="buttons">
           <label class="btn btn-info">
@@ -20,7 +20,7 @@
           </label>
           <label class="btn btn-info">
             <ul> <img class="logo" src="/resources/c-plus-plus-icon.png" alt="c++_logo"> </ul>
-            <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="c++" value="c++"> C++
+            <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="c++" value="cpp"> C++
           </label>
           <label class="btn btn-info">
             <ul> <img class="logo" src="/resources/html-icon.png" alt="html_logo"> </ul>
@@ -44,7 +44,7 @@
           </label>
           <label class="btn btn-info">
             <ul> <img class="logo" src="/resources/c-sharp-icon.png" alt="c#_logo"> </ul>
-            <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="c#" value="c#"> C#
+            <input type="radio" class="btn btn-lg btn-info" name="lang" autocomplete="off" id="c#" value="csharp"> C#
           </label>
           <label class="btn btn-info active">
             <ul> <img class="logo" src="/resources/any-icon.png" alt="any_logo"> </ul>
@@ -62,7 +62,7 @@
           </label>
           <label class="btn btn-info">
             <ul> <img class="logo" src="/resources/gnu-gpl-icon.png" alt="gnu_gpl_logo"> </ul>
-            <input type="radio" class="btn btn-lg btn-info" name="license" autocomplete="off" id="GNU" value="lgpl-3.0"> GNU GPLv3
+            <input type="radio" class="btn btn-lg btn-info" name="license" autocomplete="off" id="GNU" value="gpl"> GNU GPLv3
           </label>
           <label class="btn btn-info">
             <ul> <img class="logo" src="/resources/apache-icon.png" alt="apache_logo"> </ul>
@@ -70,7 +70,7 @@
           </label>
           <label class="btn btn-info">
             <ul> <img class="logo" src="/resources/none-icon.png" alt="</>"> </ul>
-            <input type="radio" class="btn btn-lg btn-info" name="license" autocomplete="off" id="none" value="none"> None
+            <input type="radio" class="btn btn-lg btn-info" name="license" autocomplete="off" id="none" value="unlicense"> None
           </label>
           <label class="btn btn-info active">
             <ul> <img class="logo" src="/resources/any-icon.png" alt="any_logo"> </ul>
@@ -79,11 +79,10 @@
         </div>
       </div>-->
 
-      <h3 class="index-prompts">Enter project keywords:</h3>
+      <h3 class="index-prompts">Step 2: Enter project keywords:</h3>
       <div class="form-group">
-        <input type="text" name="input" placeholder="e.g. webcrawler" autocomplete="off" class="search">
+        <input type="text" name="input" placeholder="e.g. machine learning" autocomplete="off" class="search">
       </div>
-
       {{!-- <button type ="submit" class="button" value=""><img class="search-image" src="resources/Minimal-Magnifying-Glass.png" alt="magnifying glass"></button> --}}
     </form>
 

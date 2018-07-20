@@ -2,13 +2,13 @@
 <div class="container">
     
     <div class="row">
-        <h3 id="total-num-pages">Total Pages: {{total_pages}}</h3>
+        <h3 id="total-num-pages">Current Page: {{curr_page}} | Total Returned Pages: {{total_pages}} | Total Results: {{total_count}}</h3>
     </div>
     {{#if total_pages}}
         <div class="row">
             <form action="/results/page" method="POST">
                 <div class="form-group">
-                    <input type="text" name="page" placeholder="Enter a page number: e.g. 15" autocomplete="off" class="search" id="search-page-input">
+                    <input type="text" name="page" placeholder="Enter a page number to traverse to: e.g. 15" autocomplete="off" class="search" id="search-page-input">
                 </div>
             </form>
         </div>
