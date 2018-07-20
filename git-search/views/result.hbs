@@ -25,14 +25,24 @@
                 <div class="descript-box">
                 <div class="row justify-content-between align-items-center">
                     <div class="col-5">
-                    <h6 class="center desc-text">Language: {{repo.language}}</h6>
-                    <h6 class="center desc-text">License: {{repo.license.name}}</h6>
-                    <h6 class="center desc-text">Created: {{repo.created_at}}</h6>
-                    <h6 class="center desc-text">Last Updated: {{repo.updated_at}}</h6>
+                        <div class="header">
+                            <img src="/resources/language-icon.png" alt="language_logo">
+                            <h6 class="desc-text">Language: {{repo.language}}</h6>
+                            <img src="/resources/key-icon.png" alt="keye_logo">
+                            <h6 class="desc-text">License: {{repo.license.name}}</h6>
+                            <img src="/resources/calendar-icon.png" alt="calendar_logo">
+                            <h6 class="desc-text">Created: {{repo.created_at}}</h6>
+                            <img src="/resources/update-icon.png" alt="update_logo">
+                            <h6 class="desc-text">Last Updated: {{repo.updated_at}}</h6>
+                        </div>
                     </div>
                     <div class="col-5">
-                    <h6 class="center desc-text">Stars: {{repo.stargazers_count}}</h6>
-                    <h6 class="center desc-text">Forks: {{repo.forks}}</h6>
+                        <div class="header">
+                            <img src="/resources/star-icon.png" alt="star_logo">
+                            <h6 class="desc-text">Stars: {{repo.stargazers_count}}</h6>
+                            <img src="/resources/fork-icon.png" alt="fork_logo">
+                            <h6 class="desc-text">Forks: {{repo.forks}}</h6>
+                        </div>
                     </div>
                 </div>
             </div>
