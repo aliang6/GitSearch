@@ -9,7 +9,7 @@ function checkError(err) {
 
 // Helper variables and variables from the form inputs
 var link ='https://api.github.com/search/repositories?q="open+source"'
-var total_pages = 0;
+var total_pages = 1;
 var prev_page = 0;
 var next_page = 0;
 var curr_page = 1;
@@ -18,7 +18,7 @@ var curr_page = 1;
 function getTotalPages(link) { // Uses pagination links to get the total number of pages
   const index = link.lastIndexOf('page');
   total_pages = parseInt(link.substring(index + 5, link.length));
-  console.log(total_pages);
+  console.log('Total pages: ' + total_pages);
   return total_pages;
 }
 
@@ -31,12 +31,11 @@ router.get('/', (req, res) => {
 // POST Results
 router.post('/results', (req, res) => { // Configure the link then redirect to GET /result
   const input = req.body.input;
-  total_pages = 0;
+  total_pages = 1;
   if(input != ''){
     link += '+"' + input + '"';
   }
   link += '"+';
-  // console.log(req.body);
   if(typeof req.body.lang !== 'undefined' && req.body.lang !== null && req.body.lang !=='on') {
     console.log(req.body.lang);
     link += 'language:' + req.body.lang + '+';
@@ -52,7 +51,6 @@ router.post('/results', (req, res) => { // Configure the link then redirect to G
 // POST Results Page
 router.post('/results/page', (req, res) => { // Checks input and properly configures the link
   const desired_page = req.body.page;
-  console.log(desired_page);
   if(isNaN(desired_page) || desired_page <= 0) { // Checks if input is an int
     curr_page = 1;
     res.redirect('/results/page=1');
@@ -89,15 +87,17 @@ router.get('/results/page=:page', (req, res) => {
 
   request.get(options, (err, response, body) => { // Request to GitHub's API
     checkError(err);
-    if(total_pages == 0 && response.headers.link){
+    if(err){
+      res.render('result', { body, link, total_pages, curr_page, prev_page, next_page });
+      return;
+    }
+    console.log(response.headers);
+    if(total_pages == 1 && response.headers.link){
       var first = response.headers.link;
       var pagination_arr = first.split(' ');
-      console.log(pagination_arr);
       getTotalPages(pagination_arr[2]);
-      console.log(total_pages);
     }
     body = JSON.parse(body);
-    console.log(body);
     // Format dates and time for created and updated
     if(body.items && body.items[0]) {
       for (let item of body.items) {
@@ -118,10 +118,7 @@ router.get('/results/page=:page', (req, res) => {
     
     prev_page = parseInt(curr_page) - 1;
     next_page = parseInt(curr_page) + 1;
-    console.log('Prev page = ' + prev_page);
-    console.log('Next page = ' + next_page);
     if(parseInt(next_page) > parseInt(total_pages)) { next_page = 0 }
-    console.log(link);
 
     const total_count = body.total_count;
     res.render('result', { body, link, total_count, total_pages, curr_page, prev_page, next_page });
