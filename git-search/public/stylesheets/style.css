@@ -97,12 +97,12 @@ a {
   right: 15px;
   top: 15px;
   position: fixed;
-  color: lightgrey;
+  color: #eee;
   z-index: 2;
 }
 
 #search-again:hover {
-  background-color: transparent;
+  background-color: #054696;
   outline-color: #207cca;
   color: #fff;
 }

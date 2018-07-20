@@ -24,7 +24,7 @@ function getTotalPages(link) { // Uses pagination links to get the total number 
 
 /* GET home page. */
 router.get('/', (req, res) => {
-  link = 'https://api.github.com/search/repositories?q="open source';
+  link = 'https://api.github.com/search/repositories?q="open+source';
   res.render('index', { title: 'GitSearch' });
 });
 
@@ -36,11 +36,12 @@ router.post('/results', (req, res) => { // Configure the link then redirect to G
     link += ' ' + input;
   }
   link += '"+';
-  if(typeof req.body.lang !== 'undefined' && req.body.lang !== null) {
+  console.log(req.body);
+  if(typeof req.body.lang !== 'undefined' && req.body.lang !== null && req.body.lang !=='on') {
     console.log("Hi1");
     link += 'language:' + req.body.lang + '+';
   }
-  if(typeof req.body.license !== 'undefined' && req.body.license !== null) {
+  if(typeof req.body.license !== 'undefined' && req.body.license !== null && req.body.license !== 'on') {
     console.log("hi2");
     link += 'license:' + req.body.license + '+';
   }
@@ -96,6 +97,7 @@ router.get('/results/page=:page', (req, res) => {
       console.log(total_pages);
     }
     body = JSON.parse(body);
+    console.log(body);
     // Format dates and time for created and updated
     if(body.items && body.items[0]) {
       for (let item of body.items) {
@@ -106,7 +108,7 @@ router.get('/results/page=:page', (req, res) => {
         tmp += ' ' + item.updated_at.substring(11, 19);
         item.updated_at = tmp;
         if(item.license === null) {
-          item.license = { name: 'No License', };
+          item.license = { name: 'Unlicensed', };
         }
         if(item.language === null) {
           item.language = 'No Language';
@@ -119,8 +121,10 @@ router.get('/results/page=:page', (req, res) => {
     console.log('Prev page = ' + prev_page);
     console.log('Next page = ' + next_page);
     if(parseInt(next_page) > parseInt(total_pages)) { next_page = 0 }
+    console.log(link);
 
-    res.render('result', { body, link, total_pages, curr_page, prev_page, next_page });
+    const total_count = body.total_count;
+    res.render('result', { body, link, total_count, total_pages, curr_page, prev_page, next_page });
   });
 });
 
