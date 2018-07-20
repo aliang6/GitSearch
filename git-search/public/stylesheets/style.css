@@ -183,6 +183,7 @@ ul {
 
 #search-page-input {
   color: lightgrey;
+  margin-top: -60px;
 }
 
 ::placeholder {
@@ -212,7 +213,7 @@ ul {
 
 #total-num-pages {
   color: lightgrey;
-  margin: 10px 0px -30px 40px;
+  margin: 10px 0px 30px 40px;
 }
 
 .char-box {

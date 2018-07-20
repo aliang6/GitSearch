@@ -8,7 +8,7 @@ function checkError(err) {
 }
 
 // Helper variables and variables from the form inputs
-var link ='https://api.github.com/search/repositories?q="open source'
+var link ='https://api.github.com/search/repositories?q="open+source"'
 var total_pages = 0;
 var prev_page = 0;
 var next_page = 0;
@@ -24,7 +24,7 @@ function getTotalPages(link) { // Uses pagination links to get the total number 
 
 /* GET home page. */
 router.get('/', (req, res) => {
-  link = 'https://api.github.com/search/repositories?q="open+source';
+  link = 'https://api.github.com/search/repositories?q="open+source"';
   res.render('index', { title: 'GitSearch' });
 });
 
@@ -33,18 +33,18 @@ router.post('/results', (req, res) => { // Configure the link then redirect to G
   const input = req.body.input;
   total_pages = 0;
   if(input != ''){
-    link += ' ' + input;
+    link += '+"' + input + '"';
   }
   link += '"+';
-  console.log(req.body);
+  // console.log(req.body);
   if(typeof req.body.lang !== 'undefined' && req.body.lang !== null && req.body.lang !=='on') {
-    console.log("Hi1");
+    console.log(req.body.lang);
     link += 'language:' + req.body.lang + '+';
   }
-  if(typeof req.body.license !== 'undefined' && req.body.license !== null && req.body.license !== 'on') {
-    console.log("hi2");
+  /* if(typeof req.body.license !== 'undefined' && req.body.license !== null && req.body.license !== 'on') {
+    console.log(req.body.license);
     link += 'license:' + req.body.license + '+';
-  }
+  } */
   link += '&sort=stars&order=desc&is:public&per_page=10&page=1';
   res.redirect('/results/page=1');
 });

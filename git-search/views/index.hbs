@@ -7,7 +7,7 @@
   <div class="container">
     <form action="/results" method="POST">
 
-      <h2 class="index-prompts">Select a primary language:</h2>
+      <h2 class="index-prompts">Step 1: Select a primary language:</h2>
       <div class="form-group">
         <div id="lang-btns" class="btn-lg btn-group-toggle" data-toggle="buttons">
           <label class="btn btn-info">
@@ -53,7 +53,7 @@
         </div>
       </div>
 
-      <h2 class="index-prompts">Select a project License:</h2>
+      {{!-- <h2 class="index-prompts">Select a project License:</h2>
       <div class="form-group">
         <div class="btn-lg btn-group-toggle" data-toggle="buttons">
           <label class="btn btn-info">
@@ -77,13 +77,12 @@
             <input type="radio" class="btn btn-lg btn-info" name="license" autocomplete="off" id="any-license"> Any
           </label>
         </div>
-      </div>
+      </div> --}}
 
-      <h3 class="index-prompts">Enter project keywords:</h3>
+      <h3 class="index-prompts">Step 2: Enter project keywords:</h3>
       <div class="form-group">
-        <input type="text" name="input" placeholder="e.g. webcrawler" autocomplete="off" class="search">
+        <input type="text" name="input" placeholder="e.g. machine learning" autocomplete="off" class="search">
       </div>
-
       {{!-- <button type ="submit" class="button" value=""><img class="search-image" src="resources/Minimal-Magnifying-Glass.png" alt="magnifying glass"></button> --}}
     </form>
 
