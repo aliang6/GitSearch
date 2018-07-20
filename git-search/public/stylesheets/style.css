@@ -8,14 +8,22 @@
   src: url(font/capsuula/Capsuula.ttf);
 }
 
+html {
+  height: 100vh;
+  width: 100%;
+}
+
 body {
-  font: 14px Capsuula, Raleway, "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 1rem Capsuula, Raleway, "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 50%;
   background-image: url("../resources/git-background.png");
   background-size: auto;
   background-attachment: fixed;
   background-position: center center;
   background-repeat: no-repeat;
-  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  width: 100%;
 }
 
 a {
@@ -60,9 +68,9 @@ a {
   padding:8px 15px;
   background:rgba(50, 50, 50, 0.2);
   border:2px solid #dbdbdb;
-  width: 550px;
-  height: 50px;
-  font-size: 25px;
+  width: 45rem;
+  height: 3.5rem;
+  font-size: 2rem;
   color: whitesmoke;
 }
 
@@ -154,8 +162,8 @@ a {
   display: flex;
   color: 	white;
   justify-content: center;
-  font-size: 15em;
-  text-shadow: 2px 2px 23px pink;
+  font-size: 7rem;
+  text-shadow: .05em .05em .9em #92CDFF;
 }
 
 #index-phrase {
@@ -163,7 +171,7 @@ a {
   display: flex;
   justify-content: center;
   font-size: 3.4em;
-  margin-bottom: 3%;
+  margin: -1% 0 3% 0;
   text-shadow: 0px 0px 1px black;
 }
 
@@ -172,8 +180,8 @@ ul {
 }
 
 .logo {
-  height: 50px;
-  width: 50px;
+  height: 3rem;
+  width: 3rem;
 }
 
 .form-group {
@@ -195,20 +203,28 @@ ul {
 .index-prompts {
   text-align: center;
   color: whitesmoke;
-  font-size: 3em;
+  font-size: 2.5rem;
+  margin: 3% 0 -3% 0;
+}
+
+#lang-prompt {
+  margin-bottom: -4.5%;
 }
 
 .btn-info {
-  background-color: #f44253;
+  background-color: #7D9ECF;
+  opacity: 0.9;
   border-color: #0095CF;
-  height: 120px;
-  width: 170px;
+  width: 17%;
+  font-size: 1rem;
+  margin-top: .3em;
 }
 
 .btn.btn-info.active, .btn.btn-info:hover {
-  background-color: #00aaaf !important;
+  background-color: #6984AD !important;
   border-color: #ff0000;
-  border:1px
+  border: 1px;
+  opacity 1.0;
 }
 
 #pagination-list {
@@ -234,17 +250,22 @@ ul {
 }
 
 #index-container {
-  background-color: black;
-  width: 1920px;
-  height: 974px;
-  opacity: 0.65;
+  background-color: rgba(0, 0, 0, 0.45);
   border-radius: 10px;
+  height: 100vh;
 }
 
 .buttons-div {
   width: 1500px;
 }
 
-.btn-info {
-  font-size: 20px;
+#index-search-button {
+  font-size: 1.5rem;
+  margin-left: 1%;
+  background-color: #72AFD6;
+  color: whitesmoke;
+}
+
+#index-search-button:hover {
+  background-color: #649BBD;
 }

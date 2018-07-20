@@ -1,13 +1,13 @@
 <center><div id="index-container">
   <div id="header-text">
     <h1 id="index-title"><strong>{{title}}</strong></h1>
-    <h3 id="index-phrase" >Helping you find open source projects</h3>
+    <h3 id="index-phrase"><strong>Helping you find open source projects</strong></h3>
   </div>
 
   <div class="container">
     <form action="/results" method="POST">
 
-      <h2 class="index-prompts">Step 1: Select a primary language:</h2>
+      <h2 class="index-prompts" id="lang-prompt">Select a primary language:</h2>
       <div class="form-group">
         <div id="lang-btns" class="btn-lg btn-group-toggle buttons-div" data-toggle="buttons">
           <label class="btn btn-info">
@@ -79,9 +79,9 @@
         </div>
       </div>-->
 
-      <h3 class="index-prompts">Step 2: Enter project keywords:</h3>
+      <h3 class="index-prompts">Enter project keywords:</h3>
       <div class="form-group">
-        <input type="text" name="input" placeholder="e.g. machine learning" autocomplete="off" class="search"><button type ="submit" class="button" value=""><img class="search-image" src="resources/Minimal-Magnifying-Glass.png" alt="magnifying glass"></button>
+        <input type="text" name="input" placeholder="e.g. machine learning, then hit enter or press search" autocomplete="off" class="search index-search"><button type ="submit" class="button btn btn-lg" id="index-search-button" value=""><strong>Search</strong></button>
       </div>
       {{!-- <button type ="submit" class="button" value=""><img class="search-image" src="resources/Minimal-Magnifying-Glass.png" alt="magnifying glass"></button> --}}
     </form>
