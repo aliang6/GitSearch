@@ -9,7 +9,7 @@
 }
 
 html {
-  height: 100vh;
+  height: 100%;
   width: 100%;
 }
 
@@ -17,12 +17,12 @@ body {
   font: 1rem Capsuula, Raleway, "Lucida Grande", Helvetica, Arial, sans-serif;
   font-size: 50%;
   background-image: url("../resources/git-background.png");
-  background-size: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-size: cover;
   background-attachment: fixed;
   background-position: center center;
   background-repeat: no-repeat;
-  background-color: rgba(0, 0, 0, 0.5);
-  height: 100vh;
+  height: 100%;
   width: 100%;
 }
 
@@ -217,7 +217,7 @@ ul {
 
 .btn-info {
   background-color: #5a92e6;
-  opacity: 0.6;
+  opacity: 0.3;
   border-color: #0095CF;
   width: 17%;
   font-size: 1rem;
@@ -228,6 +228,37 @@ ul {
   background-color: #4779be !important;
   opacity: 1.0;
 }
+
+.page-item {
+  color: whitesmoke;
+}
+
+.page-link {
+  color: whitesmoke;
+  background-color: #5a92e6;
+  border: 1px solid #4779be;
+  transition: 0.4s;
+}
+
+.page-link:hover {
+  background-color: #4779be;
+  border: 1px solid #4779be;
+  color: whitesmoke;
+}
+
+.page-link.disabled {
+  color: #6b6b6b;
+  background-color: #5a92e6;
+  cursor: not-allowed;
+}
+
+
+.page-link.disabled:hover {
+  color: #555555;
+  background-color: #5a92e6;
+  cursor: not-allowed;
+}
+
 
 #pagination-list {
   position: static;
@@ -254,8 +285,9 @@ ul {
 
 #index-container {
   background-color: rgba(0, 0, 0, 0.45);
-  border-radius: 10px;
+  overflow: hidden;
   height: 100vh;
+
 }
 
 .buttons-div {
@@ -304,4 +336,31 @@ ul {
 
 .header h6 {
   position: relative;
+}
+
+#top-btn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 2;
+  border: 1px solid #4779be;
+  background-color: #4689e0;
+  color: whitesmoke;
+  cursor: pointer;
+  padding: .3rem;
+  border-radius: 5px; 
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+#up-btn {
+  width: 2rem;
+  height: 2rem;
+  color: whitesmoke;
+  
+}
+
+#top-btn:hover {
+  background-color: #2463bb;
 }

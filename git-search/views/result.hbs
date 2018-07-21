@@ -47,7 +47,7 @@
                 </div>
             </div>
             </div>
-            <h6 class="center"><a href="{{repo.html_url}}"><button class="btn btn-lg btn-primary">See Repository</button></a></h6>
+            <h6 class="center"><a href="{{repo.html_url}}" target="_blank"><button class="btn btn-lg btn-primary">See Repository</button></a></h6>
         </div>
     {{/each}}
 
@@ -55,25 +55,28 @@
         <nav>
             <ul class="pagination justify-content-end" id="pagination-list">
                 {{#if prev_page}}
-                    <li class="page-item">
-                {{else}}
-                    <li class="page-item disabled">
-                {{/if}}
+                <li class="page-item">
                     <form action="/results/page" method="POST">
-                        <button class="page-link" name="page" type ="submit" class="button" value={{prev_page}}>Previous</button>
+                        <button class="page-link" name="page" type ="submit" value={{prev_page}}>Previous</button>
+                {{else}}
+                <li class="page-item">
+                    <form action="/results/page" method="POST">
+                        <button class="page-link disabled" name="page" type ="submit" value={{prev_page}} disabled>Previous</button>
+                {{/if}}
                     </form>
                 </li>
                 <li class="page-item"><a class="page-link">{{curr_page}}</a></li>
-                {{#if next_page}}
-                    <li class="page-item">
-                {{else}}
-                    <li class="page-item disabled">
-                {{/if}}
+                <li class="page-item">
                     <form action="/results/page" method="POST">
-                        <button class="page-link" name="page" type="submit" class="button" value={{next_page}}>Next</button>
+                    {{#if next_page}}
+                        <button class="page-link" name="page" type ="submit" value={{next_page}}>Next</button>
+                    {{else}}
+                        <button class="page-link disabled" name="page" type ="submit" value={{next_page}} disabled>Next</button>
+                    {{/if}}
                     </form>
                 </li>
             </ul>
         </nav>
     {{/if}}
+    <button onclick="topFunction()" id="top-btn" title="Go to top"><img id="up-btn" src="/resources/up-arrow.png"></button>
 </div>
